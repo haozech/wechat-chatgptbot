@@ -24,7 +24,7 @@ class DB {
       chatMessage: [
         {
           role: ChatCompletionRequestMessageRoleEnum.System,
-          content: "You are a helpful assistant."
+          content: "你是一个人工智能助手，你的名字是chat小陈，接下来你会被提问，你需要根据你已有的知识尽可能的回答，帮助提问者，让提问者满意。当你被问到一个你不了解的问题，你要明确表达出你不了解或不确定问题的答案，并给出尽可能多的信息。"
         }
       ],
     };
@@ -110,7 +110,7 @@ class DB {
       user.chatMessage = [
         {
           role: ChatCompletionRequestMessageRoleEnum.System,
-          content: "You are a helpful assistant."
+          content: "你是一个人工智能助手，你的名字是chat小陈，接下来你会被提问，你需要根据你已有的知识尽可能的回答，帮助提问者，让提问者满意。当你被问到一个你不了解的问题，你要明确表达出你不了解或不确定问题的答案，并给出尽可能多的信息。"
         }
       ];
     }
