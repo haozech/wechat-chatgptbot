@@ -132,7 +132,7 @@ export class ChatGPTBot {
   async getGPTMessage(talkerName: string,text: string): Promise<string> {
     let gptMessage = await chatgpt(talkerName,text);
     if (gptMessage !=="") {
-      gptMessage += "[Chat小陈]";
+      gptMessage = "[Chat小陈]" + gptMessage;
       DBUtils.addAssistantMessage(talkerName,gptMessage);
       return gptMessage;
     }
@@ -285,6 +285,7 @@ export class ChatGPTBot {
     }
     if (this.triggerGPTMessage(rawText, privateChat)) {
       const text = this.cleanMessage(rawText, privateChat);
+      console.log(`Send to ChatGPT: ${text}`);
       if (privateChat) {
         return await this.onPrivateMessage(talker, text);
       } else{
