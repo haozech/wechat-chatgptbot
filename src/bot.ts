@@ -132,7 +132,6 @@ export class ChatGPTBot {
   async getGPTMessage(talkerName: string,text: string): Promise<string> {
     let gptMessage = await chatgpt(talkerName,text);
     if (gptMessage !=="") {
-      gptMessage = "[Chat小陈]" + gptMessage;
       DBUtils.addAssistantMessage(talkerName,gptMessage);
       return gptMessage;
     }
@@ -155,7 +154,7 @@ export class ChatGPTBot {
       console.log(`🚫 Blocked ChatGPT: ${mesasge}`);
       return;
     }
-    let message = mesasge;
+    let message = "[chat小陈]" + mesasge;
     while (message.length > SINGLE_MESSAGE_MAX_SIZE) {
       messages.push(message.slice(0, SINGLE_MESSAGE_MAX_SIZE));
       message = message.slice(SINGLE_MESSAGE_MAX_SIZE);
