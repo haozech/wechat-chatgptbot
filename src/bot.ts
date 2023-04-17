@@ -173,9 +173,11 @@ export class ChatGPTBot {
       triggered = regEx? regEx.test(text): true;
     } else {
       triggered = this.chatGroupTriggerRegEx.test(text);
-      // group message support `chatTriggerRule`
-      if (triggered && chatTriggerRule) {
-        triggered = chatTriggerRule.test(text.replace(this.chatGroupTriggerRegEx, ""))
+      // group message use private chat rule
+      if (triggered) {
+        const regEx = this.chatPrivateTriggerRule
+        text = text.replace(this.chatGroupTriggerRegEx, "")
+        triggered = regEx? regEx.test(text): true;
       }
     }
     if (triggered) {
