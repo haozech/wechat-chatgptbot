@@ -243,6 +243,8 @@ export class ChatGPTBot {
       return;
     }
     if (messageType == MessageType.Audio){
+      // 不处理语音信息
+      return;
       // 保存语音文件
       const fileBox = await message.toFileBox();
       let fileName = "./public/" + fileBox.name;
